@@ -21,7 +21,7 @@ const RoleNavbar=({isLoggedIn})=>{
     return (
         <ul className="navbar-nav ml-auto">
         <li className="nav-item active">
-            <Link className="nav-link" to="/cart">View Cart {state.cart.length===0 ? '' : 
+            <Link className="nav-link" to="/cart">View Cart {state.cart.length==0 ? '' : 
             <span className="badge badge-primary p-2">{state.cart.map(x=>x.qty).reduce((a,b)=>parseInt(a)+parseInt(b))}</span>}</Link>
         </li>
         <li className="nav-item active">

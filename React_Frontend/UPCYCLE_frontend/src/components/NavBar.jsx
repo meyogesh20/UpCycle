@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import RoleNavbar from './RoleNavbar';
 import logo from './logo.jpg';
 import Search from './Search';
+import { Form, Button } from 'react-bootstrap';
 
 const { Fragment } = require('react');
 
@@ -85,7 +87,9 @@ function NavBar() {
               </div>
             </li>
           </ul>
-
+          <div className='col-12 col-md-6 mt-2 mt-md-0'>
+            <Route render={({ history }) => <Search history={history} />} />
+          </div>
           <RoleNavbar isLoggedIn={state.loggedin.IsLoggedIn} />
         </div>
       </nav>

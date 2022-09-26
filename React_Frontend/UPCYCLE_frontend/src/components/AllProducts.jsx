@@ -16,7 +16,7 @@ function AllProduct() {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const history = useHistory();
-
+  // const keyword = match.params.keyword();
   const [showDialog, setShowDialog] = useState('modal fade');
   const [display, setDisplay] = useState('none');
 

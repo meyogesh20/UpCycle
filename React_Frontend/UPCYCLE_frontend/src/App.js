@@ -19,7 +19,7 @@ import CustomerProfile from './components/CustomerProfile';
 import MyOrders from './components/MyOrders';
 import Orders from './components/Orders';
 import ViewCart from './components/ViewCart';
-//import Search from './components/Search';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route component={AllProduct} path='/' exact />
+          <Route component={AllProduct} path='/search/:keyword'  />
           <Route component={AllProduct} path='/cats' />
           <Route component={RegSupplier} path='/regsupplier' />
           <Route component={RegCustomer} path='/register' />
@@ -46,7 +47,7 @@ function App() {
           <Route component={MyOrders} path='/myorders' />
           <Route component={Orders} path='/orders' />
           <Route component={ViewCart} path='/cart' />
-          {/* <Route component={Search} path='' /> */}
+          
         </Switch>
       </BrowserRouter>
     </div>
