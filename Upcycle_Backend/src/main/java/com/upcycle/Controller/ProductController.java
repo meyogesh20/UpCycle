@@ -55,7 +55,7 @@ public class ProductController {
 		return Response.success(product);		
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> findProduct(@PathVariable("id")int id) {
 		Product product=productService.findProductById(id);
 		return Response.success(ProductResponseDTO.fromEntity(product));
@@ -113,4 +113,11 @@ public class ProductController {
 		productService.deleteProduct(id);
 		return Response.status(HttpStatus.OK);
 	}
+	
+	@GetMapping("/search")
+	public ResponseEntity<List<Product>> searchProducts(String query){
+		return ResponseEntity.ok(productService.searchProducts(query));
+	}
+	//8080/api/products/search?query=
+	
 }

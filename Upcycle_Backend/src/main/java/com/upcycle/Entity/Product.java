@@ -1,6 +1,6 @@
 package com.upcycle.Entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,16 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="product")
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int prodid;
 	private String pname;
 	private String brand;
@@ -27,9 +27,9 @@ public class Product {
 	private String subcat;
 	private int price;
 	private String photo;
-	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
 	@Column(name = "created_timestamp", insertable = false, updatable = false)
-	private Date createdTimestamp;
+	private LocalDateTime LocalDateTime;
 	@ManyToOne
 	@JoinColumn(name="sellerId")
 	private Seller seller;
@@ -77,11 +77,11 @@ public class Product {
 		System.out.println("set photo");
 		this.photo = photo;
 	}
-	public Date getCreatedTimestamp() {
-		return createdTimestamp;
+	public LocalDateTime getLocalDateTime() {
+		return LocalDateTime;
 	}
-	public void setCreatedTimestamp(Date createdTimestamp) {
-		this.createdTimestamp = createdTimestamp;
+	public void setLocalDateTime(java.time.LocalDateTime LocalDateTime) {
+		this.LocalDateTime = LocalDateTime;
 	}
 	
 	public Seller getSeller() {
@@ -100,6 +100,6 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [prodid=" + prodid + ", pname=" + pname + ", category=" + category + ", subcat=" + subcat + ", price="
-				+ price + ", photo=" + photo + ", createdTimestamp=" + createdTimestamp + "]";
+				+ price + ", photo=" + photo + ", LocalDateTime=" + LocalDateTime + "]";
 	}
 }

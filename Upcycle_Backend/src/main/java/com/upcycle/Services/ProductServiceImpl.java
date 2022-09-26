@@ -1,4 +1,4 @@
-package com.upcycle.Services;
+ package com.upcycle.Services;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,8 +22,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.upcycle.Dao.ProductDao;
 import com.upcycle.Entity.Product;
 
-
-
 @Service
 public class ProductServiceImpl implements ProductService{
 	 
@@ -32,7 +30,7 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired SellerService sellerService;
 	@Override
 	public void addProduct(Product p, @RequestParam("photo") MultipartFile pic) {
-		// TODO Auto-generated method stub
+		
 //		String photo=storageService.store(pic);
 		String fileName=StringUtils.cleanPath(pic.getOriginalFilename());
 		p.setPhoto(fileName);
@@ -93,8 +91,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product findProductById(int prodid) {
-		
+	public Product findProductById(int prodid) {		
 		return dao.getById(prodid);
 	}
 
@@ -108,5 +105,11 @@ public class ProductServiceImpl implements ProductService{
 		Page<Product> prods=dao.findAll(PageRequest.of(page, pagesize,Sort.by(Direction.DESC, "prodid")));
 		System.err.println(prods.getSize());
 		return prods;
+	}
+
+	@Override
+	public List<Product> searchProducts(String query) {
+		List<Product> products = dao.searchProducts(query);
+		return products;
 	}
 }

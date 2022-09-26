@@ -24,4 +24,6 @@ public interface ProductService {
 	Product findProductById(int prodid);
 	
 	Page<Product> allProductsPaginated(int page,int pagesize);
+	
+	List<Product> searchProducts(String query);
 }
