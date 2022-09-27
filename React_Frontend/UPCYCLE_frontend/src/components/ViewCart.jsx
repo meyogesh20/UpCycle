@@ -40,7 +40,7 @@ function ViewCart() {
     let amount = state.cart.reduce((a, b) => a + b.price, 0);
     setPayment({ ...payment, amount: amount });
     console.log('Amount => ', amount);
-  }, [state.cart, payment]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

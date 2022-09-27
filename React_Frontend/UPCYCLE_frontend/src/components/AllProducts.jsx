@@ -57,7 +57,7 @@ function AllProduct() {
     console.log(category.cat);
     if (category.cat !== undefined) {
       axios
-        .get('http://localhost:8080/api/products?cats=' + item.category)
+        .get('http://localhost:8080/api/products?category=' + item.category)
         .then((resp) => {
           console.log(resp.data);
           setProducts(resp.data.data);

@@ -19,7 +19,7 @@ import org.hibernate.annotations.CreationTimestamp;
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int prodid;
 	private String pname;
 	private String brand;

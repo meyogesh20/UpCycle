@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function CustomerProfile() {
   const [uname, setUname] = useState(sessionStorage.getItem('uname'));
-  // const userid=sessionStorage.getItem("userid")
+  //const userid=sessionStorage.getItem("userid")
   const id = sessionStorage.getItem('id');
 
   const [user, setUser] = useState({
